@@ -1,5 +1,5 @@
 {
-  "name": "yii2-billboardmanager",
+  "name": "egangloff/yii2-billboardmanager",
   "version": "1.0.0",
   "description": "Billboard Manager Module for Yii2",
   "type": "library",
