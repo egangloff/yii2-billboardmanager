@@ -1,0 +1,22 @@
+{
+  "name": "yii2-billboardmanager",
+  "version": "1.0.0",
+  "description": "Billboard Manager Module for Yii2",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Eddy Gangloff",
+      "email": "eddy.gangloff@gmail.com"
+    }
+  ],
+  "require": {
+    "yiisoft/yii2": "*",
+    "2amigos/yii2-date-time-picker-widget": "~1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "egangloff\\billboardmanager\\": ""
+    }
+  }
+}
