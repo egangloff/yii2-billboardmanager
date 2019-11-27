@@ -60,6 +60,8 @@ $this->registerJs(
 
     <?= $form->field($model, 'upload_video')->fileInput(['multiple' => false]) ?>
 
+    <?= $form->field($model, 'duration')->textInput() ?>
+
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>

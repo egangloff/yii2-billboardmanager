@@ -7,3 +7,16 @@
     padding: 15px 30px;
     font-size: 16px;
 }
+
+.wrap{
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: #000;
+}
+
+video{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: fill;
+}

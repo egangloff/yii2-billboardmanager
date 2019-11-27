@@ -29,6 +29,7 @@ class ShowController extends Controller
      */
     public function actionZone($id)
     {
+        Yii::$app->assetManager->forceCopy = true;
         $now = date("Y-m-d H:i:s");
         $schedules = Schedule::find()
             ->where(['fkzone' => $id])
@@ -37,22 +38,23 @@ class ShowController extends Controller
             ->orWhere(['always' => 1])
             ->all();
 
-        $images = [];
+        $contents = [];
         foreach ($schedules as $schedule) {
             foreach ($schedule->playlist->contents as $content) {
                 if (isset($content->image) and $content->image != '') {
-                    $images[]['src'] = Yii::$app->getModule('billboard')->imgFileUrl . $content->image;
+                    $contents[] = ['type' => 'image', 'src' => Yii::$app->getModule('billboard')->imgFileUrl . $content->image, 'duration' => '666'];
                 } elseif (isset($content->video) and $content->video != '') {
-                    $images[]['video']['src'] = Yii::$app->getModule('billboard')->imgFileUrl . $content->video;
+                    $contents[] = [
+                        'type' => 'video', 'src' => Yii::$app->getModule('billboard')->imgFileUrl . $content->video, 'duration' => $content->duration
+                        ];
                 }
             }
         }
 
         return $this->render('zone', [
-            'images' => json_encode($images)
+            'contents' => json_encode($contents)
         ]);
 
     }
-
 
 }

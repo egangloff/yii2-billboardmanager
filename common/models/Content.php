@@ -45,7 +45,7 @@ class Content extends \yii\db\ActiveRecord
                 },'enableClientValidation' => false
             ],
             */
-            [['type'], 'integer'],
+            [['type', 'duration'], 'integer'],
             [['name'], 'string', 'max' => 100],
             [['image', 'video'], 'string', 'max' => 50],
             [['upload_image'], 'file', 'extensions' => 'png, jpg', 'maxFiles' => 1, 'skipOnEmpty' => true],
@@ -64,6 +64,7 @@ class Content extends \yii\db\ActiveRecord
             'name' => 'Name',
             'image' => 'Image',
             'video' => 'Video',
+            'duration' => 'Duration'
         ];
     }
     
