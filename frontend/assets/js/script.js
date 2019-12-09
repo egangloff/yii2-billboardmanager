@@ -15,8 +15,9 @@ $(document).ready(function() {
 */
 contents = JSON.parse(contents);
 var galleryarray = [];
-var curimg = 0;
+var curimg = -1;
 let time = 5000;
+
 
 $.each(contents, function(i, item) {
     if(item.type == 'image'){
@@ -34,9 +35,11 @@ $.each(contents, function(i, item) {
     }
 });
 
-function rotateimages() {
+function rotateimages(end) {
     curimg = (curimg < galleryarray.length - 1) ? curimg + 1 : 0
-
+    if(end==1 && curimg == 0){
+        window.location.reload()
+    }
     if (galleryarray[curimg].type == "video") {
         $("#slideshow_vid").fadeOut("slow", function () {
             nextSlideshowElement()
@@ -50,7 +53,6 @@ function rotateimages() {
         $("#slideshow_vid")[0].load();
         $("#slideshow_vid").delay(600).get(0).play();
         time = galleryarray[curimg].duration;
-
     } else {
         $("#slideshow_vid").fadeOut("slow", function () {
             nextSlideshowElement()
@@ -63,7 +65,7 @@ function rotateimages() {
         $("#slideshow_vid").get(0).pause();
         time = 5000;
     }
-    setTimeout(function() { rotateimages(); }, time);
+    setTimeout(function() { rotateimages(1); }, time);
 }
 
 function nextSlideshowElement() {
@@ -73,5 +75,5 @@ function nextSlideshowElement() {
 
 window.onload = function () {
     //setTimeout("rotateimages()", 3000)
-    rotateimages();
+    rotateimages(0);
 }

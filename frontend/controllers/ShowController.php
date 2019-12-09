@@ -35,7 +35,8 @@ class ShowController extends Controller
             ->where(['fkzone' => $id])
             ->andWhere(['<', 'start', $now])
             ->andWhere(['>', 'end', $now])
-            ->orWhere(['always' => 1])
+            ->orWhere(['fkzone' => $id])
+            ->andWhere(['always' => 1])
             ->all();
 
         $contents = [];

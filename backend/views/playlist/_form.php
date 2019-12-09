@@ -44,7 +44,6 @@ BackendAssets::register($this);
                         if($content->type == 0){
                            ?>
                                    <?= Html::img(Yii::$app->getModule('billboard')->imgFileUrl.$content->image); ?>
-                                   <a href="<?= Url::to(['removecontent', 'fkplaylist' => $model->id, 'fkcontent' => $content->id]); ?>">Remove</a>
                            <?php
                         }
                         elseif ($content->type == 1){
@@ -56,6 +55,7 @@ BackendAssets::register($this);
                             <?php
                         }
                         ?>
+                        <a href="<?= Url::to(['removecontent', 'fkplaylist' => $model->id, 'fkcontent' => $content->id]); ?>">Remove</a>
                     </div>
                 <?php
             }
